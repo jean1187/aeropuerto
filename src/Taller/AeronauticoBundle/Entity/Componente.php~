@@ -1,0 +1,111 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Componente
+ *
+ * @ORM\Table(name="componente")
+ * @ORM\Entity
+ */
+class Componente
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var text $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var float $horastt
+     *
+     * @ORM\Column(name="horasTT", type="float", nullable=true)
+     */
+    private $horastt;
+
+    /**
+     * @var float $horastos
+     *
+     * @ORM\Column(name="horasTOS", type="float", nullable=true)
+     */
+    private $horastos;
+
+    /**
+     * @var string $serial
+     *
+     * @ORM\Column(name="serial", type="string", length=20, nullable=true)
+     */
+    private $serial;
+
+    /**
+     * @var float $ciclos
+     *
+     * @ORM\Column(name="ciclos", type="float", nullable=true)
+     */
+    private $ciclos;
+
+    /**
+     * @var datetime $frecuenciaDate
+     *
+     * @ORM\Column(name="frecuencia_date", type="datetime", nullable=true)
+     */
+    private $frecuenciaDate;
+
+    /**
+     * @var float $frecuenciaHours
+     *
+     * @ORM\Column(name="frecuencia_hours", type="float", nullable=true)
+     */
+    private $frecuenciaHours;
+
+    /**
+     * @var integer $aeronaveId
+     *
+     * @ORM\Column(name="aeronave_id", type="integer", nullable=false)
+     */
+    private $aeronaveId;
+
+    /**
+     * @var Aeronave
+     *
+     * @ORM\ManyToOne(targetEntity="Aeronave")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="aeronave_siglas", referencedColumnName="siglas")
+     * })
+     */
+    private $aeronaveSiglas;
+
+    /**
+     * @var CategoriaComponente
+     *
+     * @ORM\ManyToOne(targetEntity="CategoriaComponente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoria_componente_id", referencedColumnName="id")
+     * })
+     */
+    private $categoriaComponente;
+
+    /**
+     * @var TipoComponente
+     *
+     * @ORM\ManyToOne(targetEntity="TipoComponente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_componente_id", referencedColumnName="id")
+     * })
+     */
+    private $tipoComponente;
+
+
+}

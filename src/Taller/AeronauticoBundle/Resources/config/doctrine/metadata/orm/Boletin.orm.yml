@@ -1,0 +1,34 @@
+Boletin:
+  type: entity
+  table: boletin
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    boletinNro:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+      column: boletin_nro
+    mtc:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    fecha:
+      type: datetime
+      nullable: true
+    situacion:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    descripcion:
+      type: text
+      nullable: true
+  lifecycleCallbacks: {  }

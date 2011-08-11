@@ -1,0 +1,84 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Empresa
+ *
+ * @ORM\Table(name="empresa")
+ * @ORM\Entity
+ */
+class Empresa
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $nombre
+     *
+     * @ORM\Column(name="nombre", type="string", length=70, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var text $direccion
+     *
+     * @ORM\Column(name="direccion", type="text", nullable=true)
+     */
+    private $direccion;
+
+    /**
+     * @var string $rif
+     *
+     * @ORM\Column(name="rif", type="string", length=20, nullable=false)
+     */
+    private $rif;
+
+    /**
+     * @var string $tlf
+     *
+     * @ORM\Column(name="tlf", type="string", length=15, nullable=true)
+     */
+    private $tlf;
+
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     * })
+     */
+    private $cliente;
+
+
+}

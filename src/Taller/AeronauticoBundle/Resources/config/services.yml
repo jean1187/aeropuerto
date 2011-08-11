@@ -1,0 +1,7 @@
+parameters:
+#    aeronautico.example.class: Taller\AeronauticoBundle\Example
+
+services:
+#    aeronautico.example:
+#        class: %aeronautico.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

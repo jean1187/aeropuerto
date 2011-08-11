@@ -1,0 +1,36 @@
+Empleado:
+  type: entity
+  table: empleado
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    licencia:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+  oneToOne:
+    personas:
+      targetEntity: Personas
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        personas_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    usuario:
+      targetEntity: Usuario
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        usuario_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

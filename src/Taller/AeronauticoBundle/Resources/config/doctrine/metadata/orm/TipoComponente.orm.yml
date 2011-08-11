@@ -1,0 +1,23 @@
+TipoComponente:
+  type: entity
+  table: tipo_componente
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    nombre:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    idParte:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+      column: id_parte
+  lifecycleCallbacks: {  }

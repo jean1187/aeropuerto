@@ -1,0 +1,73 @@
+AplicacionBoletin:
+  type: entity
+  table: aplicacion_boletin
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    boletinId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: boletin_id
+    aeronaveId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: aeronave_id
+    recurrenteHoras:
+      type: float
+      nullable: true
+      column: recurrente_horas
+    recurrenteFecha:
+      type: datetime
+      nullable: true
+      column: recurrente_fecha
+    fechaAplicacion:
+      type: datetime
+      nullable: true
+      column: fecha_aplicacion
+    aplicable:
+      type: boolean
+      nullable: true
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+  oneToOne:
+    empleado:
+      targetEntity: Empleado
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        empleado_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    aeronave:
+      targetEntity: Aeronave
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        aeronave_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    boletin:
+      targetEntity: Boletin
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        boletin_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

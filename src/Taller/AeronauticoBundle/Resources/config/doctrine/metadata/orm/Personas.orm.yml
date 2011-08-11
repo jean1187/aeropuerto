@@ -1,0 +1,50 @@
+Personas:
+  type: entity
+  table: personas
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    nombre:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    cedula:
+      type: string
+      length: 12
+      fixed: false
+      nullable: true
+    tlf:
+      type: string
+      length: 14
+      fixed: false
+      nullable: true
+    email:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+  oneToOne:
+    empresa:
+      targetEntity: Empresa
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        empresa_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

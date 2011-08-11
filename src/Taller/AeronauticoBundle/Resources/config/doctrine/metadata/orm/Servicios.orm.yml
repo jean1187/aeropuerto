@@ -1,0 +1,17 @@
+Servicios:
+  type: entity
+  table: servicios
+  fields:
+    idservicios:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    name:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+  lifecycleCallbacks: {  }

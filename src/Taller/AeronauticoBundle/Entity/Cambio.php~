@@ -1,0 +1,66 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Cambio
+ *
+ * @ORM\Table(name="cambio")
+ * @ORM\Entity
+ */
+class Cambio
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var text $motivo
+     *
+     * @ORM\Column(name="motivo", type="text", nullable=true)
+     */
+    private $motivo;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var Componente
+     *
+     * @ORM\ManyToOne(targetEntity="Componente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="componente_nuevo", referencedColumnName="id")
+     * })
+     */
+    private $componenteNuevo;
+
+    /**
+     * @var Componente
+     *
+     * @ORM\ManyToOne(targetEntity="Componente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="componente_removido", referencedColumnName="id")
+     * })
+     */
+    private $componenteRemovido;
+
+
+}

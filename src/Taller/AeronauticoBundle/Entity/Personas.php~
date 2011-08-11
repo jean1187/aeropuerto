@@ -1,0 +1,77 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Personas
+ *
+ * @ORM\Table(name="personas")
+ * @ORM\Entity
+ */
+class Personas
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $nombre
+     *
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string $cedula
+     *
+     * @ORM\Column(name="cedula", type="string", length=12, nullable=true)
+     */
+    private $cedula;
+
+    /**
+     * @var string $tlf
+     *
+     * @ORM\Column(name="tlf", type="string", length=14, nullable=true)
+     */
+    private $tlf;
+
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Empresa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
+     * })
+     */
+    private $empresa;
+
+
+}

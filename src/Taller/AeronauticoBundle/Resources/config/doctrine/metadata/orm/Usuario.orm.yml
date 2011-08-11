@@ -1,0 +1,54 @@
+Usuario:
+  type: entity
+  table: usuario
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+    user:
+      type: string
+      length: 10
+      fixed: false
+      nullable: false
+    password:
+      type: string
+      length: 16
+      fixed: false
+      nullable: false
+    token:
+      type: string
+      length: 20
+      fixed: false
+      nullable: true
+    forget:
+      type: string
+      length: 20
+      fixed: false
+      nullable: true
+    expireAt:
+      type: datetime
+      nullable: true
+      column: expire_at
+  oneToOne:
+    status:
+      targetEntity: Status
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        status_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

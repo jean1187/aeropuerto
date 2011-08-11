@@ -1,0 +1,103 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Aeronave
+ *
+ * @ORM\Table(name="aeronave")
+ * @ORM\Entity
+ */
+class Aeronave
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var string $siglas
+     *
+     * @ORM\Column(name="siglas", type="string", length=45, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $siglas;
+
+    /**
+     * @var datetime $certificado
+     *
+     * @ORM\Column(name="certificado", type="datetime", nullable=false)
+     */
+    private $certificado;
+
+    /**
+     * @var string $serial
+     *
+     * @ORM\Column(name="serial", type="string", length=45, nullable=false)
+     */
+    private $serial;
+
+    /**
+     * @var float $horastt
+     *
+     * @ORM\Column(name="horasTT", type="float", nullable=true)
+     */
+    private $horastt;
+
+    /**
+     * @var float $horametro
+     *
+     * @ORM\Column(name="horametro", type="float", nullable=true)
+     */
+    private $horametro;
+
+    /**
+     * @var float $ciclos
+     *
+     * @ORM\Column(name="ciclos", type="float", nullable=true)
+     */
+    private $ciclos;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     * })
+     */
+    private $cliente;
+
+    /**
+     * @var TipoAeronave
+     *
+     * @ORM\ManyToOne(targetEntity="TipoAeronave")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_aeronave_id", referencedColumnName="id")
+     * })
+     */
+    private $tipoAeronave;
+
+
+}

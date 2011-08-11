@@ -1,0 +1,42 @@
+Cambio:
+  type: entity
+  table: cambio
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    motivo:
+      type: text
+      nullable: true
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+  oneToOne:
+    componenteNuevo:
+      targetEntity: Componente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        componente_nuevo:
+          referencedColumnName: id
+      orphanRemoval: false
+    componenteRemovido:
+      targetEntity: Componente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        componente_removido:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

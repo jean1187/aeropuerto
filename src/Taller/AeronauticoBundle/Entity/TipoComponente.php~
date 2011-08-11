@@ -1,0 +1,39 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\TipoComponente
+ *
+ * @ORM\Table(name="tipo_componente")
+ * @ORM\Entity
+ */
+class TipoComponente
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $nombre
+     *
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string $idParte
+     *
+     * @ORM\Column(name="id_parte", type="string", length=45, nullable=false)
+     */
+    private $idParte;
+
+
+}

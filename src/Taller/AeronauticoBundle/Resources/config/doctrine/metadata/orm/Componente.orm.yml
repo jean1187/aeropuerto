@@ -1,0 +1,72 @@
+Componente:
+  type: entity
+  table: componente
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    descripcion:
+      type: text
+      nullable: true
+    horastt:
+      type: float
+      nullable: true
+      column: horasTT
+    horastos:
+      type: float
+      nullable: true
+      column: horasTOS
+    serial:
+      type: string
+      length: 20
+      fixed: false
+      nullable: true
+    ciclos:
+      type: float
+      nullable: true
+    frecuenciaDate:
+      type: datetime
+      nullable: true
+      column: frecuencia_date
+    frecuenciaHours:
+      type: float
+      nullable: true
+      column: frecuencia_hours
+    aeronaveId:
+      type: integer
+      unsigned: false
+      nullable: false
+      column: aeronave_id
+  oneToOne:
+    aeronaveSiglas:
+      targetEntity: Aeronave
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        aeronave_siglas:
+          referencedColumnName: siglas
+      orphanRemoval: false
+    categoriaComponente:
+      targetEntity: CategoriaComponente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        categoria_componente_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    tipoComponente:
+      targetEntity: TipoComponente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        tipo_componente_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

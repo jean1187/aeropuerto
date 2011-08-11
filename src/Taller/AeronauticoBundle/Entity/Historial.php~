@@ -1,0 +1,100 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Historial
+ *
+ * @ORM\Table(name="historial")
+ * @ORM\Entity
+ */
+class Historial
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var text $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string $orden
+     *
+     * @ORM\Column(name="orden", type="string", length=20, nullable=true)
+     */
+    private $orden;
+
+    /**
+     * @var datetime $created
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
+     * @var float $horaAeronave
+     *
+     * @ORM\Column(name="hora_aeronave", type="float", nullable=true)
+     */
+    private $horaAeronave;
+
+    /**
+     * @var Cambio
+     *
+     * @ORM\ManyToOne(targetEntity="Cambio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cambio_id", referencedColumnName="id")
+     * })
+     */
+    private $cambio;
+
+    /**
+     * @var Empleado
+     *
+     * @ORM\ManyToOne(targetEntity="Empleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empleado_id", referencedColumnName="id")
+     * })
+     */
+    private $empleado;
+
+    /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Empresa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
+     * })
+     */
+    private $empresa;
+
+    /**
+     * @var Servicios
+     *
+     * @ORM\ManyToOne(targetEntity="Servicios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="servicios_idservicios", referencedColumnName="idservicios")
+     * })
+     */
+    private $serviciosservicios;
+
+
+}

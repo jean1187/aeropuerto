@@ -1,0 +1,31 @@
+Cliente:
+  type: entity
+  table: cliente
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+  oneToOne:
+    status:
+      targetEntity: Status
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        status_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    usuario:
+      targetEntity: Usuario
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        usuario_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

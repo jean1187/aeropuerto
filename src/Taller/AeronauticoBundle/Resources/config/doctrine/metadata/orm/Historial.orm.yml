@@ -1,0 +1,67 @@
+Historial:
+  type: entity
+  table: historial
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    descripcion:
+      type: text
+      nullable: true
+    orden:
+      type: string
+      length: 20
+      fixed: false
+      nullable: true
+    created:
+      type: datetime
+      nullable: true
+    updated:
+      type: datetime
+      nullable: true
+    horaAeronave:
+      type: float
+      nullable: true
+      column: hora_aeronave
+  oneToOne:
+    cambio:
+      targetEntity: Cambio
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        cambio_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    empleado:
+      targetEntity: Empleado
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        empleado_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    empresa:
+      targetEntity: Empresa
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        empresa_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    serviciosservicios:
+      targetEntity: Servicios
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        servicios_idservicios:
+          referencedColumnName: idservicios
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

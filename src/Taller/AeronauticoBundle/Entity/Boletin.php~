@@ -1,0 +1,60 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Boletin
+ *
+ * @ORM\Table(name="boletin")
+ * @ORM\Entity
+ */
+class Boletin
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $boletinNro
+     *
+     * @ORM\Column(name="boletin_nro", type="string", length=45, nullable=false)
+     */
+    private $boletinNro;
+
+    /**
+     * @var string $mtc
+     *
+     * @ORM\Column(name="mtc", type="string", length=45, nullable=false)
+     */
+    private $mtc;
+
+    /**
+     * @var datetime $fecha
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var string $situacion
+     *
+     * @ORM\Column(name="situacion", type="string", length=45, nullable=false)
+     */
+    private $situacion;
+
+    /**
+     * @var text $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+
+}

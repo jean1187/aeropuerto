@@ -1,0 +1,53 @@
+Empresa:
+  type: entity
+  table: empresa
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    nombre:
+      type: string
+      length: 70
+      fixed: false
+      nullable: false
+    direccion:
+      type: text
+      nullable: true
+    rif:
+      type: string
+      length: 20
+      fixed: false
+      nullable: false
+    tlf:
+      type: string
+      length: 15
+      fixed: false
+      nullable: true
+    email:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+  oneToOne:
+    cliente:
+      targetEntity: Cliente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        cliente_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

@@ -1,0 +1,61 @@
+Aeronave:
+  type: entity
+  table: aeronave
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    siglas:
+      id: true
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    certificado:
+      type: datetime
+      nullable: false
+    serial:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    horastt:
+      type: float
+      nullable: true
+      column: horasTT
+    horametro:
+      type: float
+      nullable: true
+    ciclos:
+      type: float
+      nullable: true
+    createAt:
+      type: datetime
+      nullable: true
+      column: create_at
+    updateAt:
+      type: datetime
+      nullable: true
+      column: update_at
+  oneToOne:
+    cliente:
+      targetEntity: Cliente
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        cliente_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    tipoAeronave:
+      targetEntity: TipoAeronave
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        tipo_aeronave_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

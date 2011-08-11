@@ -1,0 +1,84 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\Usuario
+ *
+ * @ORM\Table(name="usuario")
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var string $user
+     *
+     * @ORM\Column(name="user", type="string", length=10, nullable=false)
+     */
+    private $user;
+
+    /**
+     * @var string $password
+     *
+     * @ORM\Column(name="password", type="string", length=16, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string $token
+     *
+     * @ORM\Column(name="token", type="string", length=20, nullable=true)
+     */
+    private $token;
+
+    /**
+     * @var string $forget
+     *
+     * @ORM\Column(name="forget", type="string", length=20, nullable=true)
+     */
+    private $forget;
+
+    /**
+     * @var datetime $expireAt
+     *
+     * @ORM\Column(name="expire_at", type="datetime", nullable=true)
+     */
+    private $expireAt;
+
+    /**
+     * @var Status
+     *
+     * @ORM\ManyToOne(targetEntity="Status")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     * })
+     */
+    private $status;
+
+
+}

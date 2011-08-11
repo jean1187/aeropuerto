@@ -1,0 +1,115 @@
+<?php
+
+namespace Taller\AeronauticoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Taller\AeronauticoBundle\Entity\AplicacionBoletin
+ *
+ * @ORM\Table(name="aplicacion_boletin")
+ * @ORM\Entity
+ */
+class AplicacionBoletin
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var integer $boletinId
+     *
+     * @ORM\Column(name="boletin_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $boletinId;
+
+    /**
+     * @var integer $aeronaveId
+     *
+     * @ORM\Column(name="aeronave_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $aeronaveId;
+
+    /**
+     * @var float $recurrenteHoras
+     *
+     * @ORM\Column(name="recurrente_horas", type="float", nullable=true)
+     */
+    private $recurrenteHoras;
+
+    /**
+     * @var datetime $recurrenteFecha
+     *
+     * @ORM\Column(name="recurrente_fecha", type="datetime", nullable=true)
+     */
+    private $recurrenteFecha;
+
+    /**
+     * @var datetime $fechaAplicacion
+     *
+     * @ORM\Column(name="fecha_aplicacion", type="datetime", nullable=true)
+     */
+    private $fechaAplicacion;
+
+    /**
+     * @var boolean $aplicable
+     *
+     * @ORM\Column(name="aplicable", type="boolean", nullable=true)
+     */
+    private $aplicable;
+
+    /**
+     * @var datetime $createAt
+     *
+     * @ORM\Column(name="create_at", type="datetime", nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @var datetime $updateAt
+     *
+     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @var Empleado
+     *
+     * @ORM\ManyToOne(targetEntity="Empleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empleado_id", referencedColumnName="id")
+     * })
+     */
+    private $empleado;
+
+    /**
+     * @var Aeronave
+     *
+     * @ORM\ManyToOne(targetEntity="Aeronave")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="aeronave_id", referencedColumnName="id")
+     * })
+     */
+    private $aeronave;
+
+    /**
+     * @var Boletin
+     *
+     * @ORM\ManyToOne(targetEntity="Boletin")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="boletin_id", referencedColumnName="id")
+     * })
+     */
+    private $boletin;
+
+
+}
