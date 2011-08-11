@@ -66,6 +66,7 @@ tu servidor web local. Añade en primer lugar la siguiente línea en el archivo
 
 ```
 127.0.0.1    w2w.aeronautico
+
 ```
 
 Después, configura el *host* en el servidor web. Si utilizas por ejemplo 
@@ -106,6 +107,6 @@ Sobre los autores
 El proyecto esta siendo desarrollado por:
 
   * Jean Mendoza (@rivasjeancarlos)
-  * Jamenson Alverez (@nacmartin)
+  * Jamenson Alverez (@JamensonAlvarez)
 
 
