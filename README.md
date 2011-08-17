@@ -14,7 +14,7 @@ Instalación y configuración
 
 #### Instalación ####
 
-  1. Clona el repositorio `aeropuerto` en ese directorio:
+  1. Clona el repositorio `aeropuerto` a travez de los siguientes comandos:
    `git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto`
   3. Ejecuta el comando  php `bin/vendors install`  para descargar
   o actualizar las librerías externas de ``Symfony2``. Este comando puede tardar
