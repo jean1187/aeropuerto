@@ -22,6 +22,16 @@ class Cliente
     private $id;
 
     /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Empresa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
+     * })
+     */
+    private $empresa;
+
+    /**
      * @var Status
      *
      * @ORM\ManyToOne(targetEntity="Status")

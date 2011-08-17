@@ -7,8 +7,9 @@ Aeronave:
       type: integer
       unsigned: false
       nullable: false
+      generator:
+        strategy: IDENTITY
     siglas:
-      id: true
       type: string
       length: 45
       fixed: false

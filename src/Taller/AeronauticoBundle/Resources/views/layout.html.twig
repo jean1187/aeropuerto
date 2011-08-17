@@ -1,0 +1,28 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/layout.html.twig #}
+
+{% extends '::base.html.twig' %} 
+
+{% block title 'Aeronautico' %}
+
+{% block stylesheets %}
+
+<link href="{{ asset('bundles/aeronautico/css/main.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+        
+{% block header%}
+
+    <div id="header" class="grid_16 " >
+        <h1>Aqui va un banner HEADER</h1>
+    </div>
+
+    <div class="clear"></div>
+    
+    {% block menu%}
+       <div  id="menu" class="grid_16 ">
+          <p>940 px este es  el menu</p>
+       </div>     
+    {% endblock menu %}
+    
+    <div class="clear"></div>
+    
+{% endblock header%}

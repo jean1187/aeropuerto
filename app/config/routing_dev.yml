@@ -1,3 +1,7 @@
+AeronauticoBundle:
+    resource: "@AeronauticoBundle/Resources/config/routing.yml"
+    prefix:   /
+## Original routing    
 _welcome:
     pattern:  /
     defaults: { _controller: AcmeDemoBundle:Welcome:index }

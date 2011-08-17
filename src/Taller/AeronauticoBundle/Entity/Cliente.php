@@ -22,6 +22,16 @@ class Cliente
     private $id;
 
     /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Empresa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
+     * })
+     */
+    private $empresa;
+
+    /**
      * @var Status
      *
      * @ORM\ManyToOne(targetEntity="Status")
@@ -51,6 +61,26 @@ class Cliente
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param Taller\AeronauticoBundle\Entity\Empresa $empresa
+     */
+    public function setEmpresa(\Taller\AeronauticoBundle\Entity\Empresa $empresa)
+    {
+        $this->empresa = $empresa;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return Taller\AeronauticoBundle\Entity\Empresa 
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
     }
 
     /**

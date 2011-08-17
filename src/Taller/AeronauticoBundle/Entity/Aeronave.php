@@ -17,7 +17,7 @@ class Aeronave
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -25,8 +25,6 @@ class Aeronave
      * @var string $siglas
      *
      * @ORM\Column(name="siglas", type="string", length=45, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $siglas;
 
@@ -100,16 +98,6 @@ class Aeronave
     private $tipoAeronave;
 
 
-
-    /**
-     * Set id
-     *
-     * @param integer $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
      * Get id

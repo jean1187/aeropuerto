@@ -1,4 +1,4 @@
-Proyecto TELLER AREONAUTICO
+Proyecto TALLER AERONAUTICO
 ==================
 
 Este repositorio alberga el código fuente del proyecto que se esta desarollando
@@ -12,28 +12,20 @@ bitacora de las areonaves, etc
 Instalación y configuración
 ---------------------------
 
-### Instalación ###
+#### Instalación ####
 
-  1. Crea un directorio para el proyecto: `mkdir /proyectos/aeropuero`
-  2. Clona el repositorio `desymfony` en ese directorio:
-  `git clone git@github.com:jean1187/aeropuerto.git`
-  3. Ejecuta el comando `/proyectos/aeropuerto/bin/vendors install` para descargar
+  1. Clona el repositorio `desymfony` en ese directorio:
+  ` git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto`
+  3. Ejecuta el comando ` php bin/vendors install ` para descargar
   o actualizar las librerías externas de Symfony2. Este comando puede tardar
   un buen rato en completarse.
-
-### Configuración de la base de datos ###
-
-La aplicación necesita una base de datos de tipo SQL para guardar su 
-información. Por defecto el proyecto utiliza una base de datos local llamada
-`taller_aeronautico` a la que puede acceder un usuario  `root` y 
-cuya contraseña es `root_mysql.2010`.
-
-Lo primero que debes hacer es importar la base de datos que esta en la carpeta data_base_SQL/taller_aeronautico.sql
+  
+#### Configuración de la base de datos ####
 
 Si quieres utilizar otros valores o tu base de datos no es MySQL, puedes 
 configurarlo en las primeras líneas del archivo `app/config/parameters.ini`:
 
-```ini
+```
 [parameters]
     database_driver   = pdo_mysql
     database_host     = localhost
@@ -43,20 +35,38 @@ configurarlo en las primeras líneas del archivo `app/config/parameters.ini`:
     database_password = root_mysql.2010
 ```
 
-Una vez configurado el acceso a la base de datos, debes crear las entidades con los siguientes comandos
+Una vez configurado el acceso a la base de datos, tienes dos opciones para crear la base de datos,
+
+### Ingenieria Inversa ###
 
 ```
-php app/console doctrine:mapping:convert yml ./src/Taller/AeronauticoBundle/Resources/config/doctrine/metadata/orm --from-database --force
 
-	#Una vez generados los archivos de metadatos, puedes pedir a Doctrine que importe el esquema y construya las clases relacionadas con la entidad, ejecutando las dos siguientes ordenes.
+Restaurar la base de datos con ayuda del SQL que esta en data_base_SQL/taller_aeronautico.sql
 
-php app/console doctrine:mapping:import AeronauticoBundle annotation
-	
-	#para que me genere los metodos getters y setters
+    Si las entidades no estivieran creadas
 
-php app/console doctrine:generate:entities AeronauticoBundle
+1. `php app/console doctrine:mapping:convert yml ./src/Taller/AeronauticoBundle/Resources/config/doctrine/metadata/orm --from-database --force`
+
+2. `php app/console doctrine:mapping:import AeronauticoBundle annotation`
+
+3. `php app/console doctrine:generate:entities AeronauticoBundle`
+
 
 ```
+
+### Con ayuda de Doctrine Doctrine  ###
+
+```
+Como ya las entidades estan creadas
+
+1. `php app/console doctrine:database:create`
+
+2. `php app/console doctrine:schema:create`
+
+3. `php app/console doctrine:fixtures:load`
+
+```
+
 
 ### Configuración del servidor web ###
 

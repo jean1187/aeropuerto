@@ -2,13 +2,9 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
---
--- Create schema jobeet
---
-
-CREATE DATABASE IF NOT EXISTS taller_aeronautico;
-USE taller_aeronautico;
-
+DROP SCHEMA IF EXISTS `taller_aeronautico` ;
+CREATE SCHEMA IF NOT EXISTS `taller_aeronautico` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci ;
+USE `taller_aeronautico` ;
 
 -- -----------------------------------------------------
 -- Table `taller_aeronautico`.`status`
@@ -50,6 +46,26 @@ CREATE INDEX `fk_usuario_status1` ON `taller_aeronautico`.`usuario` (`status_id`
 
 
 -- -----------------------------------------------------
+-- Table `taller_aeronautico`.`empresa`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `taller_aeronautico`.`empresa` ;
+
+CREATE  TABLE IF NOT EXISTS `taller_aeronautico`.`empresa` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(70) NOT NULL ,
+  `direccion` TEXT NULL ,
+  `rif` VARCHAR(20) NOT NULL ,
+  `tlf` VARCHAR(15) NULL ,
+  `email` VARCHAR(45) NULL ,
+  `create_at` DATETIME NULL ,
+  `update_at` DATETIME NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `rif_UNIQUE` ON `taller_aeronautico`.`empresa` (`rif` ASC) ;
+
+
+-- -----------------------------------------------------
 -- Table `taller_aeronautico`.`cliente`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `taller_aeronautico`.`cliente` ;
@@ -58,6 +74,7 @@ CREATE  TABLE IF NOT EXISTS `taller_aeronautico`.`cliente` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `status_id` INT NOT NULL ,
   `usuario_id` INT NOT NULL ,
+  `empresa_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_cliente_status1`
     FOREIGN KEY (`status_id` )
@@ -68,12 +85,19 @@ CREATE  TABLE IF NOT EXISTS `taller_aeronautico`.`cliente` (
     FOREIGN KEY (`usuario_id` )
     REFERENCES `taller_aeronautico`.`usuario` (`id` )
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cliente_empresa1`
+    FOREIGN KEY (`empresa_id` )
+    REFERENCES `taller_aeronautico`.`empresa` (`id` )
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_cliente_status1` ON `taller_aeronautico`.`cliente` (`status_id` ASC) ;
 
 CREATE INDEX `fk_cliente_usuario1` ON `taller_aeronautico`.`cliente` (`usuario_id` ASC) ;
+
+CREATE INDEX `fk_cliente_empresa1` ON `taller_aeronautico`.`cliente` (`empresa_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -105,7 +129,7 @@ CREATE  TABLE IF NOT EXISTS `taller_aeronautico`.`aeronave` (
   `update_at` DATETIME NULL ,
   `cliente_id` INT NOT NULL ,
   `tipo_aeronave_id` INT NOT NULL ,
-  PRIMARY KEY (`id`, `siglas`) ,
+  PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_aeronave_cliente1`
     FOREIGN KEY (`cliente_id` )
     REFERENCES `taller_aeronautico`.`cliente` (`id` )
@@ -122,6 +146,8 @@ COMMENT = 'Todas aquellas aeronaves existentes' ;
 CREATE INDEX `fk_aeronave_cliente1` ON `taller_aeronautico`.`aeronave` (`cliente_id` ASC) ;
 
 CREATE INDEX `fk_aeronave_tipo_aeronave1` ON `taller_aeronautico`.`aeronave` (`tipo_aeronave_id` ASC) ;
+
+CREATE UNIQUE INDEX `siglas_UNIQUE` ON `taller_aeronautico`.`aeronave` (`siglas` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -223,34 +249,6 @@ COMMENT = 'Cambio de componentes' ;
 CREATE INDEX `fk_cambio_componente1` ON `taller_aeronautico`.`cambio` (`componente_nuevo` ASC) ;
 
 CREATE INDEX `fk_cambio_componente2` ON `taller_aeronautico`.`cambio` (`componente_removido` ASC) ;
-
-
--- -----------------------------------------------------
--- Table `taller_aeronautico`.`empresa`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `taller_aeronautico`.`empresa` ;
-
-CREATE  TABLE IF NOT EXISTS `taller_aeronautico`.`empresa` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(70) NOT NULL ,
-  `direccion` TEXT NULL ,
-  `rif` VARCHAR(20) NOT NULL ,
-  `tlf` VARCHAR(15) NULL ,
-  `email` VARCHAR(45) NULL ,
-  `create_at` DATETIME NULL ,
-  `update_at` DATETIME NULL ,
-  `cliente_id` INT NULL ,
-  PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_empresa_cliente1`
-    FOREIGN KEY (`cliente_id` )
-    REFERENCES `taller_aeronautico`.`cliente` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-CREATE UNIQUE INDEX `rif_UNIQUE` ON `taller_aeronautico`.`empresa` (`rif` ASC) ;
-
-CREATE INDEX `fk_empresa_cliente1` ON `taller_aeronautico`.`empresa` (`cliente_id` ASC) ;
 
 
 -- -----------------------------------------------------

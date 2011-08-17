@@ -10,6 +10,15 @@ Cliente:
       generator:
         strategy: IDENTITY
   oneToOne:
+    empresa:
+      targetEntity: Empresa
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        empresa_id:
+          referencedColumnName: id
+      orphanRemoval: false
     status:
       targetEntity: Status
       cascade: {  }

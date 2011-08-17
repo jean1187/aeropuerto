@@ -1,13 +1,40 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+{# app/Resources/views/base.html.twig #}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Taller | {% block title %}de Repuestos{% endblock %}</title>
+  <meta name="description" content="{% block metadesc %}Lleva el control de tu taller, a travez de esta maravillosa herrmaienta de control y seguimiento de componentes en tus Vehiculos Aereos{% endblock %}" /></meta>
+
+  <link href="{{ asset('bundles/aeronautico/css/reset.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('bundles/aeronautico/css/text.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('bundles/aeronautico/css/960.css') }}" rel="stylesheet" type="text/css" />
+  
+  {% block stylesheets %}{% endblock %}
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />  
+</head>
+
+<body id="{% block pageid '' %}">
+    <div class="container_16">
+    <header>
+    
+    {% block header %}{% endblock %}
+
+  </header>
+  
+
+    {% block body %}{% endblock %}
+
+       <footer>
+
+                  {% block footer %}
+                    <a href="">&copy; {{ 'now' | date('Y') }} - Taller Areonatico</a>
+                    <a href=""> Privacidad</a>
+                    <a href=""> Condiciones de uso</a>
+                  {% endblock %}
+
+        </footer>
+   </div> 
+  {% block javascripts %}{% endblock %}
+</body>
 </html>

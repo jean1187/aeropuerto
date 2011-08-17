@@ -1,0 +1,24 @@
+/*
+   _____      _ _               _                                    _   _           
+  /__   \__ _| | | ___ _ __    /_\   ___ _ __ ___  _ __   __ _ _   _| |_(_) ___ ___  
+    / /\/ _` | | |/ _ \ '__|  //_\\ / _ \ '__/ _ \| '_ \ / _` | | | | __| |/ __/ _ \ 
+   / / | (_| | | |  __/ |    /  _  \  __/ | | (_) | | | | (_| | |_| | |_| | (_| (_) |
+   \/   \__,_|_|_|\___|_|    \_/ \_/\___|_|  \___/|_| |_|\__,_|\__,_|\__|_|\___\___/                                                                      
+
+*/
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* *                                                                       * */
+/* *  SITIO WEB PUBLICO (FRONTEND)                                         * */
+/* *                                                                       * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/* Estilos básicos
+   ------------------------------------------------------------------------- */
+body{background-color:#F2F2F2;}
+header div {border: solid 1px black;}
+#header {background-color:#5d9484;color:yellow;text-align: center;}
+#menu {background-color:#8eb33e ;text-align: center;}
+#cuerpo {height: 600px;overflow:auto;background-color:#c1c0bf;border: solid 1px black;}

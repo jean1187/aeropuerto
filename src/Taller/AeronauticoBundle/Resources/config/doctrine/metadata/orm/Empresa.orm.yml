@@ -40,14 +40,4 @@ Empresa:
       type: datetime
       nullable: true
       column: update_at
-  oneToOne:
-    cliente:
-      targetEntity: Cliente
-      cascade: {  }
-      mappedBy: null
-      inversedBy: null
-      joinColumns:
-        cliente_id:
-          referencedColumnName: id
-      orphanRemoval: false
   lifecycleCallbacks: {  }
