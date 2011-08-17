@@ -25,7 +25,7 @@ Instalación y configuración
 Si quieres utilizar otros valores o tu base de datos no es MySQL, puedes 
 configurarlo en las primeras líneas del archivo `app/config/parameters.ini`:
 
-```
+```ini
 [parameters]
     database_driver   = pdo_mysql
     database_host     = localhost
