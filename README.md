@@ -111,6 +111,23 @@ debería mostrarse.
 
 
 
+`Al terminar puedes tener muchas ramas locales, pero los cambios que hagamos tratemos
+en la rama desarrollo, y cuando todo este estable lo cambiamos a la master`
+
+## PASOS: ##
+
+```
+    1. $ git checkout desarrollo
+        
+       1.1 Si quieres crear una nueva rama ->  $ git checkout -b Mi_rama
+       
+       1.2 Cuando estes listo, haces los commits que tengas que hacer, te cambias a 
+            la rama desarrollo y haces un merge -> $ git checkout desarrollo && git merge Mi_rama
+
+    2. $ git push origin desarrollo    //para montar la informacion en el server github
+
+```
+
 Sobre los autores
 -----------------
 
