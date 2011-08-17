@@ -14,10 +14,10 @@ Instalación y configuración
 
 #### Instalación ####
 
-  1. Clona el repositorio `desymfony` en ese directorio:
-   git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto
-  3. Ejecuta el comando  php bin/vendors install  para descargar
-  o actualizar las librerías externas de Symfony2. Este comando puede tardar
+  1. Clona el repositorio `aeropuerto` en ese directorio:
+   `git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto`
+  3. Ejecuta el comando  php `bin/vendors install`  para descargar
+  o actualizar las librerías externas de ``Symfony2``. Este comando puede tardar
   un buen rato en completarse.
   
 #### Configuración de la base de datos ####
@@ -64,6 +64,10 @@ Como ya las entidades estan creadas
 2. php app/console doctrine:schema:create
 
 3. php app/console doctrine:fixtures:load
+    
+    `Solamente tengo algunas tablas precargadas` Si quieres modificar puedes ver el archivo
+
+    `/src/Taller/AeronauticoBundle/DataFixtures/ORM/`
 
 ```
 
@@ -105,7 +109,7 @@ desarrollo de la aplicación en `http://w2w.aeropuerto/app_dev.php`. El
 entorno de producción es accesible en `http://w2w.aeropuerto/`
 
 Si se produce algún error, es posible que el servidor web no tenga permiso de 
-escritura en los directorios de la caché y de los logs. Ejecuta `chmod -R 777 
+escritura en los directordesymfonyios de la caché y de los logs. Ejecuta `chmod -R 777 
 /proyectos/desymfony/app/cache /proyectos/desymfony/app/logs` y el error ya no 
 debería mostrarse.
 
@@ -117,14 +121,15 @@ en la rama desarrollo, y cuando todo este estable lo cambiamos a la master`
 ## PASOS: ##
 
 ```
-    1. $ git checkout desarrollo
+    1. `$ git checkout desarrollo`
         
-       1.1 Si quieres crear una nueva rama ->  $ git checkout -b Mi_rama
+       1.1 Si quieres crear una nueva rama ->  `$ git checkout -b Mi_rama`
        
        1.2 Cuando estes listo, haces los commits que tengas que hacer, te cambias a 
-            la rama desarrollo y haces un merge -> $ git checkout desarrollo && git merge Mi_rama
+            la rama desarrollo y haces un merge -> `$ git checkout desarrollo && git merge Mi_rama `
 
-    2. $ git push origin desarrollo    //para montar la informacion en el server github
+    2. `$ git push origin desarrollo`    //para montar la informacion en el server github este comando
+        puedes ser tambien `$ git push`
 
 ```
 
@@ -133,5 +138,9 @@ Sobre los autores
 
 El proyecto esta siendo desarrollado por:
 
+```
+
   * Jean Mendoza (@rivasjeancarlos)
   * Jamenson Alverez (@JamensonAlvarez)
+
+```
