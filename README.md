@@ -141,6 +141,6 @@ El proyecto esta siendo desarrollado por:
 ```
 
   * Jean Mendoza (@rivasjeancarlos)
-  * Jamenson Alverez (@JamensonAlvarez)
+  * Jamenson Alvarez (@JamensonAlvarez)
 
 ```
