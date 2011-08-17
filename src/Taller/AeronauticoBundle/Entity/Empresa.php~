@@ -70,15 +70,5 @@ class Empresa
      */
     private $updateAt;
 
-    /**
-     * @var Cliente
-     *
-     * @ORM\ManyToOne(targetEntity="Cliente")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
-     * })
-     */
-    private $cliente;
-
 
 }

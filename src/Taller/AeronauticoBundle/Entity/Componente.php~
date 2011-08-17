@@ -71,21 +71,14 @@ class Componente
     private $frecuenciaHours;
 
     /**
-     * @var integer $aeronaveId
-     *
-     * @ORM\Column(name="aeronave_id", type="integer", nullable=false)
-     */
-    private $aeronaveId;
-
-    /**
      * @var Aeronave
      *
      * @ORM\ManyToOne(targetEntity="Aeronave")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="aeronave_siglas", referencedColumnName="siglas")
+     *   @ORM\JoinColumn(name="aeronave_id", referencedColumnName="id")
      * })
      */
-    private $aeronaveSiglas;
+    private $aeronave;
 
     /**
      * @var CategoriaComponente

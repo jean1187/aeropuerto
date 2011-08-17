@@ -71,21 +71,14 @@ class Componente
     private $frecuenciaHours;
 
     /**
-     * @var integer $aeronaveId
-     *
-     * @ORM\Column(name="aeronave_id", type="integer", nullable=false)
-     */
-    private $aeronaveId;
-
-    /**
      * @var Aeronave
      *
      * @ORM\ManyToOne(targetEntity="Aeronave")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="aeronave_siglas", referencedColumnName="siglas")
+     *   @ORM\JoinColumn(name="aeronave_id", referencedColumnName="id")
      * })
      */
-    private $aeronaveSiglas;
+    private $aeronave;
 
     /**
      * @var CategoriaComponente
@@ -260,43 +253,23 @@ class Componente
     }
 
     /**
-     * Set aeronaveId
+     * Set aeronave
      *
-     * @param integer $aeronaveId
+     * @param Taller\AeronauticoBundle\Entity\Aeronave $aeronave
      */
-    public function setAeronaveId($aeronaveId)
+    public function setAeronave(\Taller\AeronauticoBundle\Entity\Aeronave $aeronave)
     {
-        $this->aeronaveId = $aeronaveId;
+        $this->aeronave = $aeronave;
     }
 
     /**
-     * Get aeronaveId
-     *
-     * @return integer 
-     */
-    public function getAeronaveId()
-    {
-        return $this->aeronaveId;
-    }
-
-    /**
-     * Set aeronaveSiglas
-     *
-     * @param Taller\AeronauticoBundle\Entity\Aeronave $aeronaveSiglas
-     */
-    public function setAeronaveSiglas(\Taller\AeronauticoBundle\Entity\Aeronave $aeronaveSiglas)
-    {
-        $this->aeronaveSiglas = $aeronaveSiglas;
-    }
-
-    /**
-     * Get aeronaveSiglas
+     * Get aeronave
      *
      * @return Taller\AeronauticoBundle\Entity\Aeronave 
      */
-    public function getAeronaveSiglas()
+    public function getAeronave()
     {
-        return $this->aeronaveSiglas;
+        return $this->aeronave;
     }
 
     /**

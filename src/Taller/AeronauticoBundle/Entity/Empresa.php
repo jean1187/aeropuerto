@@ -70,16 +70,6 @@ class Empresa
      */
     private $updateAt;
 
-    /**
-     * @var Cliente
-     *
-     * @ORM\ManyToOne(targetEntity="Cliente")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
-     * })
-     */
-    private $cliente;
-
 
 
     /**
@@ -230,25 +220,5 @@ class Empresa
     public function getUpdateAt()
     {
         return $this->updateAt;
-    }
-
-    /**
-     * Set cliente
-     *
-     * @param Taller\AeronauticoBundle\Entity\Cliente $cliente
-     */
-    public function setCliente(\Taller\AeronauticoBundle\Entity\Cliente $cliente)
-    {
-        $this->cliente = $cliente;
-    }
-
-    /**
-     * Get cliente
-     *
-     * @return Taller\AeronauticoBundle\Entity\Cliente 
-     */
-    public function getCliente()
-    {
-        return $this->cliente;
     }
 }

@@ -1,4 +1,4 @@
-Proyecto TELLER AREONAUTICO
+Proyecto TALLER AERONAUTICO
 ==================
 
 Este repositorio alberga el código fuente del proyecto que se esta desarollando
