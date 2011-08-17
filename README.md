@@ -15,8 +15,8 @@ Instalación y configuración
 #### Instalación ####
 
   1. Clona el repositorio `desymfony` en ese directorio:
-  ` git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto`
-  3. Ejecuta el comando ` php bin/vendors install ` para descargar
+   git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto
+  3. Ejecuta el comando  php bin/vendors install  para descargar
   o actualizar las librerías externas de Symfony2. Este comando puede tardar
   un buen rato en completarse.
   
@@ -45,11 +45,11 @@ Restaurar la base de datos con ayuda del SQL que esta en data_base_SQL/taller_ae
 
     Si las entidades no estivieran creadas
 
-1. `php app/console doctrine:mapping:convert yml ./src/Taller/AeronauticoBundle/Resources/config/doctrine/metadata/orm --from-database --force`
+1. php app/console doctrine:mapping:convert yml ./src/Taller/AeronauticoBundle/Resources/config/doctrine/metadata/orm --from-database --force
 
-2. `php app/console doctrine:mapping:import AeronauticoBundle annotation`
+2. php app/console doctrine:mapping:import AeronauticoBundle annotation
 
-3. `php app/console doctrine:generate:entities AeronauticoBundle`
+3. php app/console doctrine:generate:entities AeronauticoBundle
 
 
 ```
@@ -59,11 +59,11 @@ Restaurar la base de datos con ayuda del SQL que esta en data_base_SQL/taller_ae
 ```
 Como ya las entidades estan creadas
 
-1. `php app/console doctrine:database:create`
+1. php app/console doctrine:database:create
 
-2. `php app/console doctrine:schema:create`
+2. php app/console doctrine:schema:create
 
-3. `php app/console doctrine:fixtures:load`
+3. php app/console doctrine:fixtures:load
 
 ```
 
@@ -118,5 +118,3 @@ El proyecto esta siendo desarrollado por:
 
   * Jean Mendoza (@rivasjeancarlos)
   * Jamenson Alverez (@JamensonAlvarez)
-
-
