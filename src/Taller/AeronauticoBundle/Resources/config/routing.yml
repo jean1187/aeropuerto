@@ -1,5 +1,0 @@
-AeronauticoBundle_homepage:
-    pattern:  /hello/{name}.{_format}
-    defaults: { _controller: AeronauticoBundle:Aeronave:index, _format: html }
-    requirements:
-      _format:  html|pdf|xml
