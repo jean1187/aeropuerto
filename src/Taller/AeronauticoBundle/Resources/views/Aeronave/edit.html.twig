@@ -8,7 +8,7 @@
 
 <div class="cuerpo grid_16 " >
     
-    {{ block('titulo_page') }}
+    {{ parent() }}
         
     {% if app.session.flash('notice') %}
     <div class="notice">

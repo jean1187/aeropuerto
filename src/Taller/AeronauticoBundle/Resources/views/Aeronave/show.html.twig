@@ -5,7 +5,8 @@
 
 {% block body %}
 <div class="cuerpo" >
-    {{ block('titulo_page') }}
+    {{ parent() }}
+        
     <div  class="grid_16 " >
         <div class="grid_4 alpha"><b>Tipo : </b>{{ aeronave.tipoAeronave }}</div>
         <div class="grid_4"><b>Siglas : </b>{{ aeronave.siglas }}</div>

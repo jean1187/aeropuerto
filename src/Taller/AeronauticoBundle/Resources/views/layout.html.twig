@@ -41,6 +41,12 @@
     <div class="clear"></div>
 {% endblock header%}
     
+
+{% block body %}
+        {{ block('titulo_page') }}
+{% endblock  body %}
+
+
 {# Linsk de Accesibilidad #}
     
 {% block listado_aeronave %}
@@ -53,7 +59,7 @@
 </div>
 {% endblock %}
     
-    
+
 {# Fin Linsk de Accesibilidad #}
     
 {% block javascripts %}
