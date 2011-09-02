@@ -36,6 +36,16 @@ class TipoComponente
     private $idParte;
 
 
+    /**
+     * @var CategoriaComponente
+     *
+     * @ORM\ManyToOne(targetEntity="CategoriaComponente" )
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoria", referencedColumnName="id")
+     * })
+     */
+    private $categoriaComponente;
+
 
     /**
      * Get id
@@ -86,4 +96,26 @@ class TipoComponente
     {
         return $this->idParte;
     }
+
+
+    /**
+     * Set categoriaComponente
+     *
+     * @param Taller\AeronauticoBundle\Entity\CategoriaComponente $categoriaComponente
+     */
+    public function setCategoriaComponente(\Taller\AeronauticoBundle\Entity\CategoriaComponente $categoriaComponente)
+    {
+        $this->categoriaComponente = $categoriaComponente;
+    }
+
+    /**
+     * Get categoriaComponente
+     *
+     * @return Taller\AeronauticoBundle\Entity\CategoriaComponente 
+     */
+    public function getCategoriaComponente()
+    {
+        return $this->categoriaComponente;
+    }
+
 }

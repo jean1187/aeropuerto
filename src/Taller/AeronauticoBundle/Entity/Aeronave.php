@@ -3,12 +3,17 @@
 namespace Taller\AeronauticoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
+
 
 /**
  * Taller\AeronauticoBundle\Entity\Aeronave
  *
  * @ORM\Table(name="aeronave")
  * @ORM\Entity
+ * @DoctrineAssert\UniqueEntity("serial")
+ * @DoctrineAssert\UniqueEntity("siglas")
  */
 class Aeronave
 {
@@ -25,13 +30,14 @@ class Aeronave
      * @var string $siglas
      *
      * @ORM\Column(name="siglas", type="string", length=45, nullable=false)
+     * @Assert\NotBlank()
      */
     private $siglas;
 
     /**
      * @var datetime $certificado
      *
-     * @ORM\Column(name="certificado", type="datetime", nullable=false)
+     * @ORM\Column(name="certificado", type="date", nullable=false)
      */
     private $certificado;
 
@@ -39,6 +45,8 @@ class Aeronave
      * @var string $serial
      *
      * @ORM\Column(name="serial", type="string", length=45, nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\MinLength(4)
      */
     private $serial;
 
@@ -97,8 +105,24 @@ class Aeronave
      */
     private $tipoAeronave;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Componente", mappedBy="aeronave")
+     */
+    private $componentes;    
 
 
+  
+
+    /**
+     * Get componentes
+     *
+     * @return Doctrine\Common\Collections\Collection $componentes
+     */
+    public function getComponentes()
+    {
+        return $this->componentes;
+    }
+   
     /**
      * Get id
      *

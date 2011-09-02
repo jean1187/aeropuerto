@@ -45,7 +45,7 @@ class Cambio
     /**
      * @var Componente
      *
-     * @ORM\ManyToOne(targetEntity="Componente")
+     * @ORM\OneToOne(targetEntity="Componente", inversedBy="componenteNuevo")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="componente_nuevo", referencedColumnName="id")
      * })
@@ -55,7 +55,7 @@ class Cambio
     /**
      * @var Componente
      *
-     * @ORM\ManyToOne(targetEntity="Componente")
+     * @ORM\OneToOne(targetEntity="Componente", inversedBy="compRemovido")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="componente_removido", referencedColumnName="id")
      * })

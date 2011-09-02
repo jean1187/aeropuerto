@@ -29,11 +29,14 @@ class Status
     private $nombre;
 
     /**
-     * @var string $tabla
+     * @var categoria
      *
-     * @ORM\Column(name="tabla", type="string", length=20, nullable=false)
+     * @ORM\ManyToOne(targetEntity="CategoriaStatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoria_status_id", referencedColumnName="id")
+     * })
      */
-    private $tabla;
+    private $categoria;
 
 
 
@@ -67,23 +70,23 @@ class Status
         return $this->nombre;
     }
 
-    /**
-     * Set tabla
+     /**
+     * Set categoria
      *
-     * @param string $tabla
+     * @param Taller\AeronauticoBundle\Entity\CategoriaStatus $categoria
      */
-    public function setTabla($tabla)
+    public function setCategoria(\Taller\AeronauticoBundle\Entity\CategoriaStatus $categoria)
     {
-        $this->tabla = $tabla;
+        $this->categoria= $categoria;
     }
 
     /**
-     * Get tabla
+     * Get categoria
      *
-     * @return string 
+     * @return Taller\AeronauticoBundle\Entity\CategoriaStatus 
      */
-    public function getTabla()
+    public function getCategoria()
     {
-        return $this->tabla;
+        return $this->categoria;
     }
 }

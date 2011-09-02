@@ -6,23 +6,57 @@
 
 {% block stylesheets %}
 
-<link href="{{ asset('bundles/aeronautico/css/main.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/aeronautico/css/main.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ asset('bundles/aeronautico/menu/menu.css') }}" rel="stylesheet" type="text/css" />
+
+    
+    
 {% endblock %}
         
 {% block header%}
 
     <div id="header" class="grid_16 " >
-        <h1>Aqui va un banner HEADER</h1>
+       <center> <h1> ========= Aqui va un banner HEADER ===============</h1> </center>
     </div>
 
     <div class="clear"></div>
     
     {% block menu%}
-       <div  id="menu" class="grid_16 ">
-          <p>940 px este es  el menu</p>
-       </div>     
+       <div  id="menu" class="grid_16 " >
+            <ul class="menu">
+                <li><a href="#" class="parent"><span>Aeronave</span></a>
+                    <div><ul>
+                        <li><a href="{{path("_AeronauticoBundle_homepage")}}"><span>Lista</span></a></li>
+                        <li><a href="{{path("_AeronauticoBundle_new")}}"><span>Agregar</span></a></li>
+                    </ul></div>
+                </li>
+                <li><a href="#"><span>Ayuda</span></a></li>
+                <li class="last"><a href="#"><span>Salir</span></a></li>
+            </ul>
+               <div id="copyright" style="display:none">Copyright &copy; 2011 <a href="http://apycom.com/" >Apycom jQuery Menus</a></div>
+        </div>
+    
     {% endblock menu %}
-    
     <div class="clear"></div>
-    
 {% endblock header%}
+    
+{# Linsk de Accesibilidad #}
+    
+{% block listado_aeronave %}
+    <a href="{{path("_AeronauticoBundle_homepage")}}"><< IR al listado de aeronaves</a>  
+{% endblock %}
+
+{% block titulo_page %}
+<div  class="grid_16 " >
+    <h1> {{block('title') }}</h1>
+</div>
+{% endblock %}
+    
+    
+{# Fin Linsk de Accesibilidad #}
+    
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/aeronautico/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/aeronautico/menu/menu.js') }}"></script>
+{% endblock %}

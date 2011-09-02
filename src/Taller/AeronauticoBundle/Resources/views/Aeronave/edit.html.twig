@@ -1,0 +1,39 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/Aeronave/edit.html.twig #}
+
+{% extends 'AeronauticoBundle::layout.html.twig' %} 
+
+{% block title %}Edicion Aeronave : {{ aeronave.siglas }}{% endblock %}
+
+{% block body %}
+
+<div class="cuerpo grid_16 " >
+    
+    {{ block('titulo_page') }}
+        
+    {% if app.session.flash('notice') %}
+    <div class="notice">
+        <p>{{ app.session.flash('notice') }}</p>
+    </div>
+    {% endif %}
+
+    <form action="{{ path('_AeronauticoBundle_edit', { 'id': aeronave.id }) }}" method="post" {{ form_enctype(form) }}>
+
+        {% include 'AeronauticoBundle:Aeronave:form_aeronave.html.twig' %}
+        
+		<div class="grid_2 prefix_7" >
+		    <p>
+			<input type="submit" value="Guardar cambios" />
+		    </p>
+		</div>
+		<div class="clear"></div>
+
+		{{ form_errors(form._token) }}
+		{{ form_widget(form._token) }}
+
+        
+    </form>
+
+    {{ block('listado_aeronave') }}
+    
+</div>    
+{% endblock %}

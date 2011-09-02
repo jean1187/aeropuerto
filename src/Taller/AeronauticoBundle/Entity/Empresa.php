@@ -70,6 +70,10 @@ class Empresa
      */
     private $updateAt;
 
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 
 
     /**
@@ -91,6 +95,7 @@ class Empresa
     {
         $this->nombre = $nombre;
     }
+
 
     /**
      * Get nombre

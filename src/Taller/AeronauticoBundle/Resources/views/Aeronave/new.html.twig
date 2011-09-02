@@ -1,0 +1,41 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/Aeronave/new.html.twig #}
+
+{% extends 'AeronauticoBundle::layout.html.twig' %} 
+
+{% block title %}Nueva Aeronave{% endblock %}
+
+{% block pageid 'registro' %}
+
+{% block body %}
+
+<div class="cuerpo grid_16 " >
+
+ {{ block('titulo_page') }}
+    
+  {{ form_errors(form) }}
+
+	<form action="{{ path('_AeronauticoBundle_new') }}" method="post" {{ form_enctype(form) }}>
+
+		
+                {% include 'AeronauticoBundle:Aeronave:form_aeronave.html.twig' %}
+
+		{# Cuarta columna #}
+
+
+		<div class="grid_2 prefix_7" >
+		    <p>
+			<input type="submit" value="Guardar" />
+		    </p>
+		</div>
+		<div class="clear"></div>
+
+		{{ form_errors(form._token) }}
+		{{ form_widget(form._token) }}
+
+
+	</form>
+
+	{{ block('listado_aeronave') }}
+</div>
+
+{% endblock body%}

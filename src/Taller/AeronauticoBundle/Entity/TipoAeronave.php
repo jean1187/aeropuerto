@@ -50,6 +50,12 @@ class TipoAeronave
         $this->nombre = $nombre;
     }
 
+    public function __toString()
+    {
+        
+        return $this->getNombre();
+    }
+    
     /**
      * Get nombre
      *
@@ -59,4 +65,7 @@ class TipoAeronave
     {
         return $this->nombre;
     }
+    
+    
+    
 }

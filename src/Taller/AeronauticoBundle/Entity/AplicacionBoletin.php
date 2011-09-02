@@ -25,7 +25,6 @@ class AplicacionBoletin
      * @var integer $boletinId
      *
      * @ORM\Column(name="boletin_id", type="integer", nullable=false)
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $boletinId;
@@ -34,7 +33,6 @@ class AplicacionBoletin
      * @var integer $aeronaveId
      *
      * @ORM\Column(name="aeronave_id", type="integer", nullable=false)
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $aeronaveId;

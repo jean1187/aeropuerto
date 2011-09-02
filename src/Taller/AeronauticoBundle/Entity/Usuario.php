@@ -80,7 +80,10 @@ class Usuario
      */
     private $status;
 
-
+    public function __toString()
+    {
+        return $this->getUser();
+    }
 
     /**
      * Get id

@@ -1,0 +1,83 @@
+{% extends "AeronauticoBundle::layout.html.twig" %}
+
+{% block title %}Detalle Aeronave : {{ aeronave.siglas }}{% endblock %}
+{% block pageid 'admin' %}
+
+{% block body %}
+<div class="cuerpo" >
+    {{ block('titulo_page') }}
+    <div  class="grid_16 " >
+        <div class="grid_4 alpha"><b>Tipo : </b>{{ aeronave.tipoAeronave }}</div>
+        <div class="grid_4"><b>Siglas : </b>{{ aeronave.siglas }}</div>
+        <div class="grid_4"><b>Serial : </b>{{ aeronave.serial }}</div>
+        <div class="grid_4 omega"><b>Cliente : </b>{{ aeronave.cliente.empresa.nombre | truncate (20,true)|upper}}</div>
+    </div>
+
+    <div  class="clear" ></div>
+
+    <br/> 
+
+    <div  class="grid_16 " >
+        <noscript> <h1>Por Favor Active el javascript para que este modulo funcione correctamente</h1></noscript>
+        <table>
+            <thead>
+                <tr>
+                    <th min-width=7px>#</th>
+                    <th>Serial</th>
+                    <th>Ciclos</th>
+                    <th>Tipo</th>
+                    <th>Categoria</th>
+                    <th>Frec. F</th>
+                    <th>Frec. H</th>
+                    <th>HorasTT</th>
+                    <th>HorasTOS</th>
+                    <th>Estatus</th>
+                    <th width=95px>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for componente in aeronave.componentes %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{componente.serial}}</td>
+                    <td>{{componente.ciclos}}</td>
+                    <td>{{componente.tipoComponente.nombre}}</td>
+                    <td>{{componente.tipoComponente.categoriaComponente.nombre }}</td>
+                    <td>{{componente.frecuenciaDate|date("d/m/Y")}}</td>
+                    <td>{{componente.frecuenciaHours}}</td>
+                    <td>{{componente.horastt}}</td>
+                    <td>{{componente.horastos}}</td>
+                    <td>
+                            {% if  (componente.compRemovido and componente.componenteNuevo)%}
+                                    Nuevo-Removido
+                            {% elseif (not componente.compRemovido and componente.componenteNuevo)%}
+                                    Nuevo
+                            {% elseif (componente.compRemovido and not componente.componenteNuevo) %}
+                                    Removido
+                            {% else %}
+                                    Original
+                            {% endif %}
+                    </td>
+                        <td>
+                            <a href="{{ path('_AeronauticoBundle_show', { 'id': aeronave.id}) }}"><img src="{{ asset('images/show.png') }}" title="Ver Detalle"/></a>
+                            <a href="{{ path('_AeronauticoBundle_edit', { 'id': aeronave.id}) }}"><img src="{{ asset('images/edit.png') }}" title="Editar"/></a>
+                            <a href="{{ path('_AeronauticoBundle_del', { 'id': aeronave.id}) }}"><img src="{{ asset('images/delete.png') }}" title="Eliminar"/></a>
+                        </td>
+                </tr>
+            {% else  %}
+                <tr>
+                    <td colspan="4"><h1>No existe ningun Componente</h1></td>
+                </tr>
+
+            {% endfor %}            
+            </tbody>
+        </table>
+    <br/>     
+       {{ block('listado_aeronave') }}
+
+    </div>
+    <div class="clear"></div>
+</div> 
+{% endblock %}
+

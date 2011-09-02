@@ -73,22 +73,13 @@ class Componente
     /**
      * @var Aeronave
      *
-     * @ORM\ManyToOne(targetEntity="Aeronave")
+     * @ORM\ManyToOne(targetEntity="Aeronave", inversedBy="componentes")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="aeronave_id", referencedColumnName="id")
      * })
      */
     private $aeronave;
 
-    /**
-     * @var CategoriaComponente
-     *
-     * @ORM\ManyToOne(targetEntity="CategoriaComponente")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="categoria_componente_id", referencedColumnName="id")
-     * })
-     */
-    private $categoriaComponente;
 
     /**
      * @var TipoComponente
@@ -100,7 +91,21 @@ class Componente
      */
     private $tipoComponente;
 
+    /**
+     * @var TipoComponente
+     *
+     * @ORM\OneToOne(targetEntity="Cambio", mappedBy="componenteRemovido" )
+     * 
+     */    
+    private $compRemovido;
 
+    /**
+     * @var TipoComponente
+     *
+     * @ORM\OneToOne(targetEntity="Cambio", mappedBy="componenteNuevo" )
+     * 
+     */    
+    private $componenteNuevo;
 
     /**
      * Get id
@@ -112,6 +117,15 @@ class Componente
         return $this->id;
     }
 
+    public function getCompRemovido()
+    {
+        return $this->compRemovido;
+    }
+    
+    public function componenteNuevo()
+    {
+        return $this->componenteNuevo;
+    }
     /**
      * Set descripcion
      *
@@ -193,7 +207,7 @@ class Componente
     }
 
     /**
-     * Set ciclos
+     * Set cicloscomponenteNuevo
      *
      * @param float $ciclos
      */
@@ -273,26 +287,6 @@ class Componente
     }
 
     /**
-     * Set categoriaComponente
-     *
-     * @param Taller\AeronauticoBundle\Entity\CategoriaComponente $categoriaComponente
-     */
-    public function setCategoriaComponente(\Taller\AeronauticoBundle\Entity\CategoriaComponente $categoriaComponente)
-    {
-        $this->categoriaComponente = $categoriaComponente;
-    }
-
-    /**
-     * Get categoriaComponente
-     *
-     * @return Taller\AeronauticoBundle\Entity\CategoriaComponente 
-     */
-    public function getCategoriaComponente()
-    {
-        return $this->categoriaComponente;
-    }
-
-    /**
      * Set tipoComponente
      *
      * @param Taller\AeronauticoBundle\Entity\TipoComponente $tipoComponente
@@ -311,4 +305,6 @@ class Componente
     {
         return $this->tipoComponente;
     }
+
+
 }

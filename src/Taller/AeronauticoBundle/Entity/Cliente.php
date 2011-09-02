@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Taller\AeronauticoBundle\Entity\Cliente
  *
  * @ORM\Table(name="cliente")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Taller\AeronauticoBundle\Entity\ClienteRepository")
  */
 class Cliente
 {
@@ -51,7 +51,11 @@ class Cliente
      */
     private $usuario;
 
-
+    public function __toString()
+    {
+        
+        return $this->getUsuario()." [ ".$this->getEmpresa()." ]";
+    }
 
     /**
      * Get id
