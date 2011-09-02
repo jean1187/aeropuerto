@@ -14,8 +14,7 @@ Instalación y configuración
 
 #### Instalación ####
 
-  1. Clona el repositorio `aeropuerto` a travez de los siguientes comandos:
-   `git clone git@github.com:jean1187/aeropuerto.git && cd aeropuerto`
+  1. Clona el repositorio `aeropuerto`  && cd aeropuerto`
   3. Ejecuta el comando  php `bin/vendors install`  para descargar
   o actualizar las librerías externas de ``Symfony2``. Este comando puede tardar
   un buen rato en completarse.
@@ -40,6 +39,7 @@ Una vez configurado el acceso a la base de datos, tienes dos opciones para crear
 ### Ingenieria Inversa ###
 
 ```
+Ya este paso no es necesario, porque las entidades estan creadas ve la paso ### Con ayuda de Doctrine Doctrine  ###
 
 Restaurar la base de datos con ayuda del SQL que esta en data_base_SQL/taller_aeronautico.sql
 
