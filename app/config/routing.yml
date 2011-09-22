@@ -2,4 +2,10 @@
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
-
+AeronaveBundle:
+    resource: "@AeronauticoBundle/Resources/config/routing/aeronave_routing.yml"
+    prefix:   /aeronave
+    
+ComponenteBundle:
+    resource: "@AeronauticoBundle/Resources/config/routing/componente.yml"
+    prefix:   /componente

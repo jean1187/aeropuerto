@@ -111,7 +111,13 @@ class Aeronave
     private $componentes;    
 
 
-  
+
+    public function getSiglasSerial()
+    {
+        
+        return "[ ".$this->getSiglas()." ] - [".$this->getSerial()." ]";
+    }
+    
 
     /**
      * Get componentes

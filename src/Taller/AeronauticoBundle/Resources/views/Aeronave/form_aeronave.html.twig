@@ -1,32 +1,32 @@
 {% import "AeronauticoBundle::macros_form.html.twig" as forms %}
                 {# Primera columna #}
 
-		<div class="grid_5 alpha" >
-                    {{ forms.input(form.serial, { 'attr': {'placeholder': '  AJE002-08'} }) }}
+		<div class="grid_4 alpha" >
+                    {{ forms.input(form.serial, { 'attr': {'placeholder': '  AJE002-08','size':'15px'} }) }}
 		</div>
 
 		<div class="grid_5" >
                     {{ forms.input(form.siglas, { 'attr': {'placeholder': '  EV0069'} }) }}
 		</div>
 
-		<div class="grid_5 omega" >
+		<div class="grid_6 omega" >
                     {{ forms.input(form.horametro) }}
 		</div>
 		<div class="clear"></div>
 
 		{# Segunda columna #}
 
-		<div class="grid_5 alpha" >
-                    {{ forms.input(form.certificado) }}
+		<div class="grid_4 alpha" >
+                    {{ forms.input(form.ciclos, { 'attr': {'size':'15px'} }) }}
 		</div>
-
 		<div class="grid_5 " >
                     {{ forms.input(form.horastt) }}
 		</div>
 
-		<div class="grid_5 " >
-                    {{ forms.input(form.ciclos) }}
+        	<div class="grid_6 omega" >
+                    {{ forms.input(form.certificado) }}
 		</div>
+
 
 		<div class="clear"></div>
 

@@ -1,0 +1,52 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/Componente/index.html.twig #}
+
+{% extends 'AeronauticoBundle::layout.html.twig' %} 
+
+{% block title %}Componentes{% endblock %}
+
+{% block body %}
+<div class="cuerpo grid_16 " >
+    {{ parent() }}
+    <table class="records_list">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Descripcion</th>
+            <th>Horastt</th>
+            <th>Horastos</th>
+            <th>Serial</th>
+            <th>Ciclos</th>
+            <th>Frec. F</th>
+            <th>Frec. H</th>
+            <th width=90px>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for componente in componentes %}
+        <tr>
+            <td><a href="{{ path('componente_show', { 'id': componente.id }) }}">{{ componente.id }}</a></td>
+            <td>{{ componente.descripcion }}</td>
+            <td>{{ componente.horastt }}</td>
+            <td>{{ componente.horastos }}</td>
+            <td>{{ componente.serial }}</td>
+            <td>{{ componente.ciclos }}</td>
+            <td>{{ componente.frecuenciaDate|date('Y-m-d H:i:s') }}</td>
+            <td>{{ componente.frecuenciaHours }}</td>
+            <td>
+                <a href="{{ path('componente_show', { 'id': componente.id}) }}"><img src="{{ asset('images/show.png') }}" title="Ver Detalle"/></a>
+                <a href="{{ path('componente_edit', { 'id': componente.id}) }}"><img src="{{ asset('images/edit.png') }}" title="Editar"/></a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+    <div class="clear"></div>
+    <div  class="grid_16" >
+        <div class="grid_4 suffix_12">
+            <a href="{{path("componente_new")}}" class="btn" >Nuevo Componente</a>
+        </div>
+    </div>
+{% endblock body%}

@@ -107,6 +107,12 @@ class Componente
      */    
     private $componenteNuevo;
 
+         public function __toString()
+    {
+        
+        return $this->getDescripcion();
+    }
+    
     /**
      * Get id
      *
@@ -122,7 +128,7 @@ class Componente
         return $this->compRemovido;
     }
     
-    public function componenteNuevo()
+    public function getComponenteNuevo()
     {
         return $this->componenteNuevo;
     }

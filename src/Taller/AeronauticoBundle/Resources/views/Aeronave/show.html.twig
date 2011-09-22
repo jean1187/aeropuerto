@@ -74,11 +74,16 @@
             {% endfor %}            
             </tbody>
         </table>
-    <br/>     
-       {{ block('listado_aeronave') }}
+     
+       
 
     </div>
     <div class="clear"></div>
+    <div  class="grid_16 " >
+        <div class="grid_4 suffix_2">{{ block('listado_aeronave') }}</div>
+        <div class="grid_4"> <a href="{{path('_AeronauticoBundle_add_componente')}}" class="btn" >Nuevo Componente</a></div>
+        
+    </div>
 </div> 
 {% endblock %}
 

@@ -47,6 +47,12 @@ class TipoComponente
     private $categoriaComponente;
 
 
+     public function __toString()
+    {
+        
+        return $this->getNombre();
+    }
+    
     /**
      * Get id
      *

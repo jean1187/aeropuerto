@@ -1,0 +1,41 @@
+<h1>Componente</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
+        <tr>
+            <th>Descripcion</th>                <td>{{ entity.descripcion }}</td>        </tr>
+        <tr>
+            <th>Horastt</th>                <td>{{ entity.horastt }}</td>        </tr>
+        <tr>
+            <th>Horastos</th>                <td>{{ entity.horastos }}</td>        </tr>
+        <tr>
+            <th>Serial</th>                <td>{{ entity.serial }}</td>        </tr>
+        <tr>
+            <th>Ciclos</th>                <td>{{ entity.ciclos }}</td>        </tr>
+        <tr>
+            <th>Frecuenciadate</th>                <td>{{ entity.frecuenciaDate|date('Y-m-d H:i:s') }}</td>        </tr>
+        <tr>
+            <th>Frecuenciahours</th>                <td>{{ entity.frecuenciaHours }}</td>        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('componente') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('componente_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('componente_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

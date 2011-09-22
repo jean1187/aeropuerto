@@ -1,0 +1,28 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/Componente/new.html.twig #}
+
+{% extends 'AeronauticoBundle::layout.html.twig' %} 
+
+{% block title %}Nuevo Componente{% endblock %}
+
+{% block pageid 'crear_componente' %}
+
+{% block body %}
+
+<div class="cuerpo grid_16 " >
+
+ {{ parent() }}
+    
+  {{ form_errors(form) }}
+
+        <form action="{{ path('componente_create') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <p>
+                <button type="submit">Create</button>
+            </p>
+        </form>
+
+
+	{{ block('listado_componentes') }}
+</div>
+
+{% endblock body%}    

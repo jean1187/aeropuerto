@@ -1,0 +1,98 @@
+{# src src/Taller/AeronauticoBundle/Resource/views/Aeronave/index.html.twig #}
+
+{% extends 'AeronauticoBundle::layout.html.twig' %} 
+
+{% block title %}Listado de Aeronaves {% endblock %}
+
+
+{% block body %}
+<div class="cuerpo grid_16 " >
+    {{ parent() }}
+        <table>
+            <thead>
+                <tr>
+                    <th min-width=7px>#</th>
+                    <th>Siglas</th>
+                    <th>Tipo</th>
+                    <th>Serial</th>
+                    <th>Comp</th>
+                    <th>Cliente</th>
+                    <th>Horametro</th>
+                    <th>HorasTT</th>
+                    <th>Ciclos</th>
+                    <th width=115px>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    {% for aeronave in aeronaves %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{ aeronave.serial }}</td>
+                            <td>{{ aeronave.tipoAeronave.nombre}}</td>
+                            <td>{{ aeronave.siglas }}</td>
+                            <td>{{ aeronave.componentes | length }}</td>
+                            <td><a href="" title="Ver detalle de la empresa">{{ aeronave.cliente.empresa.nombre | truncate(20, true) |upper}}</a></td>
+                            <td>{{aeronave.horametro|default('--') }}</td>
+                            <td>{{aeronave.horastt|default('--') }}</td>
+                            <td>{{aeronave.ciclos|default('--') }}</td>
+                            <td>
+                                <span  class="ui-widget-header ui-corner-all toolbar">
+                                        
+                                        <a class="show_button" href="{{ path('_AeronauticoBundle_show', { 'id': aeronave.id}) }}">Ver Detalles</a>
+                                        <a class="edit_button" href="{{ path('_AeronauticoBundle_edit', { 'id': aeronave.id}) }}">Editar</a>
+                                        <a class="show_button" href="{{ path('_AeronauticoBundle_show', { 'id': aeronave.id}) }}">Ver Detalles</a>
+                                        
+                                </span>
+                            </td>
+                        </tr>
+                    {% else  %}
+                        <tr>
+                            <td colspan="10"><h1>No existe ninguna aeronave</h1></td>
+                        </tr>
+                    {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <a href="{{path("_AeronauticoBundle_new")}}" ><button class="add_button" >Nueva Aeronave</button></a>
+                    </td>    
+                </tr>
+            </tfoot>
+        </table>
+        
+</div>
+<div id="new_form" style="display:none" href="{{path("_AeronauticoBundle_new")}}" ></div>    
+
+{% endblock body%}
+
+{% block javascripts %}
+{{ parent() }}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                         $( ".add_button" ).button({ 
+                               text: true
+                         });
+                         $('#new_form').load($('#new_form').attr("href")).dialog({
+					autoOpen: false,
+					width: 980,
+					buttons: {
+						"Guardar": function() { 
+                                                    $.post($('#new_form').attr("href"), $("form").serializeArray() ,function(data) {
+                                                      $.mesages_validation(data);                                                      
+                                                    });
+						}, 
+						"Cancelar": function() { 
+							$(this).dialog("close"); 
+						} 
+					}
+				});
+
+                         $(".add_button").click(function(){
+                             $('#new_form').dialog('open');
+                             return false;
+                        });
+            });
+            
+        </script>
+{% endblock javascripts%}

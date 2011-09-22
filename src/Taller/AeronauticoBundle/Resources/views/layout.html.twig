@@ -5,17 +5,22 @@
 {% block title 'Aeronautico' %}
 
 {% block stylesheets %}
-
-    <link href="{{ asset('bundles/aeronautico/css/main.css') }}" rel="stylesheet" type="text/css" />
-
-    <link href="{{ asset('bundles/aeronautico/menu/menu.css') }}" rel="stylesheet" type="text/css" />
-
-    
-    
+    {{parent()}}
+        {% stylesheets  filter='cssrewrite, yui_css' output='css/compressed.css'
+                'bundles/aeronautico/css/main.css'
+                'bundles/aeronautico/menu/menu.css'
+                'bundles/aeronautico/jquery_ui/css/jquery-ui.css'
+                'bundles/aeronautico/jquery_ui/css/ui.selectmenu.css'
+                'bundles/aeronautico/achtung/ui.achtung-min.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+        {% endstylesheets %}
 {% endblock %}
-        
+      
+           
 {% block header%}
 
+            
     <div id="header" class="grid_16 " >
        <center> <h1> ========= Aqui va un banner HEADER ===============</h1> </center>
     </div>
@@ -31,6 +36,12 @@
                         <li><a href="{{path("_AeronauticoBundle_new")}}"><span>Agregar</span></a></li>
                     </ul></div>
                 </li>
+                <li><a href="#" class="parent"><span>Componente</span></a>
+                    <div><ul>
+                            <li><a href="{{path("componente")}}"><span>Lista</span></a></li>
+                            <li><a href="{{path("componente_new")}}"><span>Añadir</span></a></li>
+                    </ul></div>
+                </li>                
                 <li><a href="#"><span>Ayuda</span></a></li>
                 <li class="last"><a href="#"><span>Salir</span></a></li>
             </ul>
@@ -43,26 +54,41 @@
     
 
 {% block body %}
+     <noscript>
+        <h1> Por Favor Active el Javascript en su Navegador para el buen Funcionamiento de este Modulo</h1>
+     </noscript>
         {{ block('titulo_page') }}
 {% endblock  body %}
 
 
 {# Linsk de Accesibilidad #}
     
-{% block listado_aeronave %}
-    <a href="{{path("_AeronauticoBundle_homepage")}}"><< IR al listado de aeronaves</a>  
-{% endblock %}
+    {% block listado_aeronave %}
+        <a href="{{path("_AeronauticoBundle_homepage")}}"><< IR al listado de Aeronaves</a>  
+    {% endblock %}
 
-{% block titulo_page %}
-<div  class="grid_16 " >
-    <h1> {{block('title') }}</h1>
-</div>
-{% endblock %}
+    {% block listado_componentes %}
+        <a href="{{ path('componente') }}"><< IR al listado de Componentes</a>
+    {% endblock %}        
+        
+    {% block titulo_page %}
+    <div  class="grid_16 " >
+        <h1> {{block('title') }}</h1>
+    </div>
+    {% endblock %}
     
 
 {# Fin Linsk de Accesibilidad #}
     
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('bundles/aeronautico/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/aeronautico/menu/menu.js') }}"></script>
+         {% javascripts  filter='yui_js' output='js/compressed.js'
+                'bundles/aeronautico/js/jquery.js'
+                'bundles/aeronautico/js/global.twig.js'
+                'bundles/aeronautico/menu/menu.js'
+                'bundles/aeronautico/jquery_ui/js/jquery-ui.js'
+                'bundles/aeronautico/jquery_ui/js/ui.selectmenu.js'
+                'bundles/aeronautico/achtung/ui.achtung-min.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 {% endblock %}

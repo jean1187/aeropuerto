@@ -1,6 +1,3 @@
-AeronauticoBundle:
-    resource: "@AeronauticoBundle/Resources/config/aeronave_routing.yml"
-    prefix:   /aeronave
 ## Original routing    
 _welcome:
     pattern:  /

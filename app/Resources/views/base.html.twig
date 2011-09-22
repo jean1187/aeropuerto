@@ -5,12 +5,25 @@
   <meta charset="utf-8">
   <title>Taller | {% block title %}de Repuestos{% endblock %}</title>
   <meta name="description" content="{% block metadesc %}Lleva el control de tu taller, a travez de esta maravillosa herrmaienta de control y seguimiento de componentes en tus Vehiculos Aereos{% endblock %}" /></meta>
+        
+{#	  	
+	  <link href="{{ asset('bundles/aeronautico/css/reset.css') }}" rel="stylesheet" type="text/css" />
+	  <link href="{{ asset('bundles/aeronautico/css/text.css') }}" rel="stylesheet" type="text/css" />
+	  <link href="{{ asset('bundles/aeronautico/css/960.css') }}" rel="stylesheet" type="text/css" />
 
-  <link href="{{ asset('bundles/aeronautico/css/reset.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('bundles/aeronautico/css/text.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('bundles/aeronautico/css/960.css') }}" rel="stylesheet" type="text/css" />
-  
-  {% block stylesheets %}{% endblock %}
+#}
+
+  {% block stylesheets  %}
+    {% stylesheets   output='css/960grid.css' filter='cssrewrite, yui_css'
+                'bundles/aeronautico/css/reset.css'
+                'bundles/aeronautico/css/text.css'
+                'bundles/aeronautico/css/960.css'
+    %}
+                {# If your files are in web/css/mystyle1.css
+                    call them with: 'css/mystyle.css' #}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+    {% endstylesheets %}
+  {% endblock %}
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />  
 </head>
 
@@ -25,16 +38,17 @@
      
     {% block body %}{% endblock %}
 
-       <footer>
-
-                  {% block footer %}
-                    <a href="">&copy; {{ 'now' | date('Y') }} - Taller Areonatico</a>
-                    <a href=""> Privacidad</a>
-                    <a href=""> Condiciones de uso</a>
-                  {% endblock %}
-
-        </footer>
+             {% block footer %}
+                    <footer>
+                        <a href="">&copy; {{ 'now' | date('Y') }} - Taller Areonatico</a>
+                        <a href=""> Privacidad</a>
+                        <a href=""> Condiciones de uso</a>
+                    </footer>
+            {% endblock %}
    </div> 
-  {% block javascripts %}{% endblock %}
+        
+  {% block javascripts %}
+
+  {% endblock %}
 </body>
 </html>
